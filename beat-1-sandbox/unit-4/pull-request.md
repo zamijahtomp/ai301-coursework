@@ -15,45 +15,19 @@ label is not graded.
 
 **Pull request**
 
-[Link to the pull request you opened. It must be the pull request's own page on the Path
-Review repo, not your fork's branch page.]
+[PASTE the PR's own page link on the Path Review repo]
 
 **Branch**
 
-[The name of the branch the pull request comes from, exactly as it appears in your fork.
-The naming shape is a type prefix, then the issue number, then a short description. **The
-issue number in the branch name must be the number of the issue the pull request fixes** —
-a name carrying any other number does not satisfy this field.]
-
-## Eval iterations
-
-Answer all four sections. Quote source text directly; paraphrase does not satisfy these
-fields.
+fix/71-dedent-heading-fixture
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
-
-**Package analysis**
-
-[Pick one scored package (`pkg-01` through `pkg-20` — the four `calib-` packages are never
-scored). Name it by id, say what your rubric decided and what the gold label said, and
-explain why your rubric read it that way.]
-
-**Check rationale**
-
-[Quote one check from the `rubric.md` you uploaded to `tools/pr-precheck/`, exactly as it reads now.
-Then say why it reads that way — what you revised to get there, or what you rejected in
-favour of it.]
+Run 1: 20/20 (bar met). Run 2: all 20 packages errored (`claude exited 1`) because Claude Code was logged into the wrong account, so nothing was scored. Run 3: 20/20 (bar met, PASS), the run committed to `eval-run.txt`.
 
 **Trade-offs**
 
-[Every check gives something up. Any one of these is a complete answer: a package whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+I never revised the tool after the first run, so nothing changed and here is how I know: the first full run and the saved full run both agreed on all 20, with every category at 100% (clear-accept 7/7, not-tested 4/4, silent-drift 4/4, standards-wall 2/2, unreviewable 3/3). The cost is in `standards-honored`: a repo policy that only asks for human-written comments, without naming a required disclosure statement, is not tested, so my rubric will miss a PR that ignores that kind of preference.
 
 ---
 
